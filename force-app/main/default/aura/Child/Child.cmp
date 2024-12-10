@@ -1,0 +1,5 @@
+<aura:component>
+    <aura:attribute name="childAttribute" type="String"/>
+    <h2>{!v.childAttribute}</h2>
+    <lightning:button label="Change Child Attribute" onclick="{!c.changeValue}"/> 
+</aura:component>

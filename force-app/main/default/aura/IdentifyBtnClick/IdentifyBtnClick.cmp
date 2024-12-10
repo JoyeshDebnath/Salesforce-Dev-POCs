@@ -1,0 +1,6 @@
+<aura:component>
+    <lightning:button label="Button1" aura:id="btn1" name="btn1Name" onclick="{!c.invoke}"/>
+    <lightning:button label="Button2" aura:id="btn2" name="btn2Name" onclick="{!c.invoke}"/>
+    <lightning:button label="Button3" aura:id="btn3" name="btn3Name" onclick="{!c.invoke}"/>
+
+</aura:component>

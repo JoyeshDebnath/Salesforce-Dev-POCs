@@ -1,0 +1,139 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:attribute name="fields" type="String[]" default="['FirstName','LastName','Email']"/>
+    <!-- <aura:handler name="init" value="{!this}" action="{!c.handleInit}"/> -->
+    <div class="slds-p-around_medium">
+        <h2>Lightning Record Edit Form Demo 😊</h2>
+        <lightning:recordEditForm 
+            recordId="{!v.recordId}"
+            objectApiName="Contact"
+            >
+                <lightning:messages/>
+                <lightning:outputField fieldName="AccountId"/>
+                <lightning:outputField fieldName="FirstName"/>
+                <lightning:outputField fieldName="LastName"/>
+                <lightning:outputField fieldName="Email"/>
+                <lightning:button class="slds-m-top_small" label="Update" variant="brand" type="submit" name="update"/>
+
+        </lightning:recordEditForm>
+    </div>
+<!-- creating a record  -->
+    <div class="slds-p-around_small">
+        <h2>Create Form Using Lightning Record Edit Form </h2>
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Contact">
+                <lightning:messages/>
+                <lightning:inputField fieldName="FirstName"/>
+                <lightning:inputField fieldName="LastName"/>
+                <lightning:inputField fieldName="Email"/>
+                <lightning:button class="slds-m-top_small" type="submit" label="Create New" name="create" variant="brand"/>
+            </lightning:recordEditForm>
+    </div>
+
+    <!-- lightning record Edit Form to create  using 2 column layout  -->
+    <div class="slds-p-around_medium">
+        <h2>Example 3</h2>
+        <lightning:recordEditForm 
+            aura:id="recordForm" 
+            objectApiName="Contact" 
+            recordId="{!v.recordId}"
+            onload="{!c.handleLoad}"
+            onsuccess="{!c.handleSuccess}"
+            onsubmit="{!c.handleSubmit}"
+            >
+            <lightning:messages/>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <!--  -->
+                        <lightning:inputField fieldName="FirstName" aura:id="fname" />
+                        <lightning:inputField fieldName="LastName" value="Doe"/>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <!--  -->
+                        <lightning:inputField fieldName="Email" value="example@gmail.com"/>
+                        <lightning:inputField fieldName="Phone" value="0000000000000"/>
+                </div>
+                
+            </div>
+            <lightning:button class="slds-p-round_small" label="Create New" type="submit" />
+        </lightning:recordEditForm>
+    </div>
+
+    <div class="slds-p-around_medium">
+        <h3>Record Form Demo 3</h3>
+        <lightning:recordEditForm 
+            objectApiName="Contact"
+            recordId="{!v.recordId}"
+            
+            >
+            <lightning:messages/>
+            <lightning:inputField aura:id="field" fieldName="FirstName"/>
+            <lightning:inputField aura:id="field" fieldName="LastName"/>
+            <lightning:inputField aura:id="field" fieldName="Email"/>
+            <lightning:inputField aura:id="field" fieldName="Phone"/>
+            <div class="slds-m-top_small">
+                <lightning:button label="Cancel" onclick="{!c.handleReset}"/>
+                <lightning:button type="submit" label="Create Or Update"/>
+            </div>
+            
+        </lightning:recordEditForm>
+    </div>
+
+    <!-- Lightjning Record Form Demo 1 -->
+     <div class="slds-p-around_medium">
+        <h3>Lightning Record Form Demo 1 🎃 </h3>
+        <lightning:recordForm 
+            objectApiName="Contact"
+            recordId="{!v.recordId}"
+            layoutType="Full"
+            mode="view"
+            />
+     </div>
+
+     <div class="slds-m-around_medium">
+        <lightning:recordForm
+            aura:id="recordForm2"
+            recordId="{!v.recordId}"
+            objectApiName="Contact"
+            fields="{!v.fields}"
+            columns="2"
+            mode="edit"
+            onsubmit="{!c.handleSumbit2}"
+            />
+     </div>
+     <!--  -->
+
+
+
+     <!-- Example Of Record View Form and Redcord Editr Form Used Together ....  -->
+      <div class="slds-p-bottom_medium slds-p-left_medium" style="width:500px">
+        <lightning:recordEditForm
+            aura:id="recordEditForm2"
+            recordId="{!v.recordId}"
+            objectApiName="Contact"
+            >
+                <lightning:inputField fieldName="FirstName"/>
+                <lightning:inputField fieldName="LastName"/>
+                <lightning:inputField fieldName="Birthdate"/>
+                <lightning:inputField fieldName="Phone"/>
+                <lightning:inputField fieldName="LeadSource"/>
+                <lightning:button aura:id="submitBtn" label="Edit" type="submit" class="slds-p-top_medium" /> 
+        </lightning:recordEditForm>
+
+        <!-- view the form  -->
+        
+      </div>
+      <div class="slds-p-bottom_medium slds-p-left_medium" style="width: 500px;">
+        <lightning:recordViewForm
+            recordId="{!v.recordId}"
+            objectApiName="Contact"
+            >
+        <div class="slds-box">
+            <lightning:outputField fieldName="FirstName"/>
+            <lightning:outputField fieldName="LastName"/>
+            <lightning:outputField fieldName="Birthdate"/>
+            <lightning:outputField fieldName="LeadSource"/>
+            
+        </div>
+        </lightning:recordViewForm>
+      </div>      
+    
+</aura:component>

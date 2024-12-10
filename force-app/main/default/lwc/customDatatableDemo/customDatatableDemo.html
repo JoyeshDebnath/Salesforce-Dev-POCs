@@ -1,0 +1,17 @@
+<template>
+    <lightning-card variant="Narrow" title="Extended Lightning Datatable Demo" icon-name="standard:account">
+        <!-- <lightning-datatable
+            key-field="Id"
+            data={records}
+            columns="columns"
+
+        ></lightning-datatable> -->
+
+        <c-l-tmgdatatable
+            key-field="Id"
+            data={records}
+            columns={columns}
+            onselect={handleSelect}
+        ></c-l-tmgdatatable>
+    </lightning-card>
+</template>

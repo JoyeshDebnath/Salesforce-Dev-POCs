@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name='whom' type='String' default='SFDC Joyesh' access='public'/>
+    <aura:attribute name='age' type='integer' default='24' access='private'/>
+    <aura:attribute name='contactObj' type='Contact' access='public'/>
+    <aura:attribute name='colorPalette' type='String[]' default="['red','green','blue','black','white','purple']"/>
+    <aura:attribute name='carList' type='List' default="['BMW','Hyundai','Toyota','Suzuki']"/>
+    <aura:attribute name='bikesSet' type='Set' default="['Hayabusa','Kawasaki','Ninja','Avenger']"/>
+    <aura:attribute name='cityMap' type="Map" default="{ Tokyo:'Japan',kolkata:'India',Sanghai:'China'}"/>
+    
+   
+    <h2>Hi there  {!v.whom}..... your age maybe {!v.age} ....  </h2>
+    <br/>
+    <h2>The color is {!v.colorPalette[1]}</h2>
+    <br/>
+    <lightning:input aura:id="input" value="{v.age}" label="Enter age"/>
+    
+    <lightning:button  value='Component Methods' label="Click here" onclick='{!c.doClick}' />
+    
+    
+</aura:component>

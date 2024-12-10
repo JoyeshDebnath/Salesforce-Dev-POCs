@@ -1,0 +1,17 @@
+<aura:component>
+    <aura:attribute name="account" type="Account" default="{'sobjectType':'Account'}"/>
+
+    <lightning:card title="" footer="Sobject@Joyesh">
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:account" />
+            <h3>SObject In Aura Demo</h3>
+        </aura:set>
+        <lightning:inputField label="Account name" value="{!v.account.Name}"/>
+        <lightning:input label="Account Industry" value="{!v.account.Industry}"/>
+        <lightning:input label="Account Rating" value="{!v.account.Rating}"/>
+
+        <center>
+            <lightning:button label="Invoke" onclick="{!c.invoke}"/>
+        </center>
+    </lightning:card>
+</aura:component>

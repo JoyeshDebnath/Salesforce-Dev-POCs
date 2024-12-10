@@ -1,0 +1,7 @@
+<aura:component>
+    <!-- Register Event in child  -->
+        <aura:registerEvent name="myevent" type="c:myEvent2"/>
+
+
+        <lightning:button label="Register" onclick="{!c.register}"/>
+</aura:component>

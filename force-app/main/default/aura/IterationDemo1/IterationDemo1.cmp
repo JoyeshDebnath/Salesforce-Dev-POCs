@@ -1,0 +1,10 @@
+<aura:component>
+    <aura:attribute name="Ages" type="integer[]" default="[10,20,30,40,50]"/>
+    <aura:attribute name="Countries" type="List" default="['India','Australia','China','Japan']"/>
+
+    <div style="margin-left:100px;margin-top:100px;width:100px;border:1px solid ;">
+    <aura:iteration items="{!v.Countries}" var="country">
+        <h2>{!country}</h2>
+    </aura:iteration>
+    </div>
+</aura:component>

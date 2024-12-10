@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-input label="Principle" onchange={onPrincipleChange} value={principle} ></lightning-input>
+        <br>
+        <lightning-input label="Rate" 
+                            type="number" 
+                            formatter="percent-fixed" 
+                            step="1"
+                            onchange={onRateChange}
+                            value={rate} ></lightning-input>
+        <br>
+        <lightning-input label="Time" onchange={onTimeChange} value={time} ></lightning-input>
+        <br>
+
+        <h2>Interest is :{interest}</h2>
+        <lightning-button label="Calculate Interest" variant="brand" onclick={calculate}></lightning-button>
+    </div>
+</template>

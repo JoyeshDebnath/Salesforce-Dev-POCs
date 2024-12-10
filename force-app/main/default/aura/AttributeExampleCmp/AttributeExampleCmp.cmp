@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="whom" type="String" default="Joyesh" access="private" />
+    <aura:attribute name="Age" type="integer" default="24" access="public"/>
+    <aura:attribute name="contactObject" type="Contact" access="public"/>
+    <!-- Array -->
+    <aura:attribute name="colorPicker" type="String[]" default="['red','violet','blue','green']" access="private"/>
+    <!-- List -->
+    <aura:attribute name="colorPallete" type="List" default="['red','green','blue','violet']" access="private"/>
+    <!-- Set -->
+    <aura:attribute name="animalSet" type="Set" default="['dog','cat','lion']" access="private"/>
+    <!-- Map -->
+    <aura:attribute name="sectionLabels" type="Map" default="{a:'label1',b:'label2'}" access="public"/>
+
+    <aura:attribute name="firstNum" type="integer" default="0" access="public"/>
+    <aura:attribute name="secondNum" type="integer" default="0" access="public"/>
+    <aura:attribute name="res" type="integer" default="0" access="public"/>
+
+    <div class="row">
+        <lightning:input name="num1" label="Enter First number" value="{!v.firstNum}"/>
+        <lightning:input name="num2" label="Enter Seconnd number" value="{!v.secondNum}"/>
+        <h2>The Output is : {!v.res}</h2>
+        <lightning:buttonGroup>
+                <lightning:button label="Add" onclick="{!c.doAdd}"/>
+                <lightning:button label="Subtract" onclick="{!c.doSubtract}"/>
+                <lightning:button label="Multiply" onclick="{!c.doMultiply}"/>
+                <lightning:button label="Divide" onclick="{!c.doDivide}"/>
+    </lightning:buttonGroup>
+    </div>
+</aura:component>

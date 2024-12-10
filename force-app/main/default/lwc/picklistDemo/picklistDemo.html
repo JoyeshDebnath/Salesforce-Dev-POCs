@@ -1,0 +1,15 @@
+<template>
+    <lightning-card variant="Narrow" title="Reusable Picklist Demo">
+        <div class="slds-m-around_large">
+            <c-picklist-cmp required="true" name="Industry" label="Industry" placeholder="Select Industry Value" object-api-name="Account" field-api-name="Industry" onchange={onChangeHandler}></c-picklist-cmp>
+        </div>
+
+        <div class="slds-m-around_large">
+            <c-picklist-cmp name="Source" label="Account Source" placeholder="Select Account Source Value" object-api-name="Account" field-api-name="AccountSource" onchange={onChangeHandler}></c-picklist-cmp>
+        </div>
+
+          <div class="slds-m-around_large">
+            <c-picklist-cmp name="caseReason" label="Case Reason" placeholder="Select Case Reason Value" object-api-name="Case" field-api-name="Reason" record-type-id='012dM0000048Y8f'  onchange={onChangeHandler}></c-picklist-cmp>
+        </div>
+    </lightning-card>
+</template>

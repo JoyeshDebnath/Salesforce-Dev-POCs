@@ -1,0 +1,98 @@
+<aura:component controller="GetContactController">
+    <aura:handler name='init' value="{!this}" action="{!c.getContactData}"/>
+    <aura:attribute name="getConList" type="List" />
+    <aura:attribute name="openModal" type="boolean" default="false" />
+    <aura:attribute name='editForm' type="boolean" default="false"/>
+    <aura:attribute name="getcont" type="Contact" />
+    <aura:attribute name='conId' type="String" />
+    <!--auto refresh after creating contact 👇👇👇👇-->
+    <aura:handler event="force:refreshView" action="{!c.getContactData}"/>
+    
+    
+    <div>
+    	<div class="slds-p-around_large slds-grid slds-grid_vertical-align-center slds-grid_align-center">
+            <button class="slds-button slds-button_brand" onclick="{!c.openCreateContactPopup}">Create a new Contact</button>
+        </div>
+        <!--table starts -->
+        	<table class="slds-table slds-table--bordered slds-table--striped">
+            		<thead>
+                		<tr>
+                        	<th scope="col"><span>Contact FirstName</span></th>
+                            <th scope="col"><span>Contact LastName</span></th>
+                            <th scope="col"><span>Contact Email Id</span></th>
+                            <th scope="col"><span>Contact Phone number</span></th>
+                            <th scope="col"> <span>Actions ✍️</span></th>
+                        </tr>
+                	</thead>
+             		<tbody>
+                		<aura:iteration items="{!v.getConList}" var="con">
+                            <tr>
+                            	<td>{!con.FirstName}</td>
+                                <td>{!con.LastName}</td>
+                                <td>{!con.Email}</td>
+                                <td>{!con.Phone}</td>
+                                <td>
+                                    <button class="slds-button slds-button_brand" onclick="{!c.editConHandler}" data-conId="{!con.Id}">EDIT ✏️</button>
+                                	<button class="slds-button slds-button_destructive" onclick="{!c.deleteConHandler}" data-conId="{!con.Id}">DELETE 🗑️</button>
+                                </td>
+                            </tr>
+                        </aura:iteration> 
+                	</tbody>
+            </table>
+        <!--table ends -->
+        
+        <!-- modal starts here -->
+        <aura:if isTrue="{!v.openModal}">
+        		<section role="dialog" 
+                         tabindex="-1" 
+                         aria-modal="true" 
+                         aria-labelledby="modal-heading-01" 
+                         class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+               
+                    
+                <div class="slds-modal__header">
+                    <lightning:buttonIcon iconName='utility:close'
+                                     onclick="{!c.closeModal}"
+                                     alternativeText="close"
+                                     variant="bare-inverse"
+                                     class="slds-modal_close"/>
+                <aura:if isTrue="{!v.editForm}">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Edit Contact ✍️️</h1>
+                  	<aura:set attribute="else">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Create Contact ❤️</h1>
+                    </aura:set>
+                </aura:if>
+                
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                	<aura:if isTrue="{!v.editForm}">
+                    	<lightning:input type="text" aura:id="EFName" label="Enter Contact First name" value="{!v.getcont.FirstName}"/>
+                    	<lightning:input type="text" aura:id="ELName" label="Enter Contact Last name" value="{!v.getcont.LastName}"/>
+                        <lightning:input type="email" aura:id="Eemail" label="Enter Contact Email" value="{!v.getcont.Email}"/>
+                    <aura:set attribute="else">
+                    	<lightning:input type="text" aura:id="FName" label="Enter Contact First name"/>
+                        <lightning:input type="text" aura:id="LName" label="Enter Contact Last name"/>
+                        <lightning:input type="number" aura:id="phone" label="Enter Contact Phone"/>
+                        <lightning:input type="email" aura:id="email" label="Enter Contact Email"/>
+                    </aura:set>
+                    </aura:if>
+                    
+                </div>
+               <div class="slds-modal__footer slds-grid slds-grid_vertical-align-center slds-grid_align-center">
+                  <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick="{!c.closeModal}">Cancel</button>
+                   <aura:if isTrue="{!v.editForm}">
+                   		<button class="slds-button slds-button_brand" onclick="{!c.editContactHandler}">Update Contact</button>
+                    <aura:set attribute="else">
+                    	<button class="slds-button slds-button_brand" onclick="{!c.saveContact}">Create Contact</button>   
+                    </aura:set>
+                   </aura:if>
+                  
+               </div>
+                </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </aura:if>
+        <!-- modal ends here   -->
+    </div>
+</aura:component>

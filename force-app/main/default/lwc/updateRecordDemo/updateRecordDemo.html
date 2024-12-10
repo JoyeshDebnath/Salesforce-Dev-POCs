@@ -1,0 +1,13 @@
+<template>
+<lightning-card title="Update Record" icon-name="standard:account">
+    <div class="slds-m-around_medium">
+        <lightning-input type="text" name="FirstName" label="First name" placeholder="Enter First name" value={firstname} onchange={handleChange}></lightning-input>
+        <lightning-input type="text" name="LastName" label="Last name" placeholder="Enter Last name"  value={lastname} onchange={handleChange}></lightning-input>
+        <lightning-input type="text" name="Email" label="Email" placeholder="Email" value={email} onchange={handleChange}></lightning-input>
+    </div>
+
+    <div class="slds-m-around_large">
+        <lightning-button variant="brand" label="Update Record" onclick={handleUpdate}></lightning-button>
+    </div>
+</lightning-card>
+</template>

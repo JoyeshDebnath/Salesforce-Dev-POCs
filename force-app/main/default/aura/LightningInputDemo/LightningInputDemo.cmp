@@ -1,0 +1,35 @@
+<aura:component>
+    <aura:attribute name="firstname" type="String"/>
+    <aura:attribute name="lastname" type="String"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="phone" type="String"/>
+    <aura:attribute name="age" type="integer"/>
+    
+
+    <div class="width:600px;padding:40px;border:2px solid black;">
+        <lightning:input label="First name" type="text" value="{!v.firstname}"/>
+        <lightning:input label="Last name" type="text" value="{!v.lastname}"/>
+        <lightning:input label="Email" type="email" value="{!v.email}"/>
+        <lightning:input label="Phone" type="phone" value="{!v.phone}"/>
+        <lightning:input label="Age" type="text" value="{!v.age}"/>
+        <center>
+            <lightning:button label="Show Data" variant="brand" onclick="{!c.showData}"/>
+            <lightning:button label="Clear Data" variant="brand" onclick="{!c.clearData}"/>
+        </center>
+    </div>
+
+
+<!-- <div style="padding:50px">
+        <lightning:input label="Firstname" value="JOHN"/>
+        <lightning:input label="Lastname" value="DOE" required="true" type="text"/>
+        <lightning:input label="Email address" value="example@gmail.com" type="email"/>
+        <lightning:input label="Phone" value="000000000000" type="phone"/>
+        <lightning:input label="Password" value="XXXXXXXX" type="password"/>
+        <lightning:input label="Married" type="checkbox"/>
+        <lightning:input label="DOB" type="datetime"/>
+        <lightning:input label="Date" type="date"/>
+        <lightning:input label="Color" type="color"/>
+    </div>
+     -->
+
+</aura:component>

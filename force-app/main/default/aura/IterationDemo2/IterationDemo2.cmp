@@ -1,0 +1,16 @@
+<aura:component controller="AccountController">
+    <!-- <aura:attribute name="accList" type="List"/> -->
+    <aura:attribute name="accList" type="AccountController.WrapperData[]"/>
+    <aura:attribute name="columns" type="List"/>
+
+    <lightning:button label="Show Customers" onclick="{!c.showData}"/>
+    <div style="width:500px;margin-left:100px;margin-top:200px;">
+        <lightning:datatable
+            keyField="id"
+            data="{!v.accList}"
+            columns="{!v.columns}"
+            hideCheckboxColumn="true"
+        />
+    </div>
+
+</aura:component>

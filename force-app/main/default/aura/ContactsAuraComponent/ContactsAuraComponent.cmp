@@ -1,0 +1,38 @@
+<aura:component 
+                controller="contactsController" 
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hassObjectName" 
+                access="global" >
+    <aura:attribute name="contactList" type="Contact[]" access="private"/>   
+    <!-- on load of the application will call  a constructor . Aurahandler  -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     <div>
+         <c:QuickContact AccountId="{!v.recordId}"/>
+     </div>
+    <div class="slds-p-around_small">
+       
+       <div class="slds-grid slds-wrap slds-gutters">
+        
+    	<aura:iteration  items="{!v.contactList}" var="con">
+        	<div class="slds-col slds_size-1-of-3 slds-p-around_small">
+                <lightning:card title="{!con.LastName}" footer="{!con.Email}"
+                                iconName="standard:contact">
+                		<aura:set attribute="actions">
+                            <lightning:button 
+                                              name="{!con.Id}"
+                                              label="view Details" 
+                                              onclick="{!c.doRedirect}"
+                                              variant="brand"/>
+                    	</aura:set>    
+                
+                        <p class ="slds-p-horizontal_small">
+                            Contact First name : {!con.FirstName} <br/>
+                            Contact Last name : {!con.LastName} <br/>
+                        
+                         Contact Phone number : {!con.Phone}
+                        </p>
+                 </lightning:card>
+            </div>
+        </aura:iteration>
+           </div>
+    </div>
+</aura:component>

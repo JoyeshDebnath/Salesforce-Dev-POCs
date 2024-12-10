@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="text" type="String"/>
+    <aura:handler  name="change"  value="{!v.text}" action="{!c.doChange}" />
+  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:button value="change value" label="Change Value" onclick="{!c.changeValue}"/>
+</aura:component>

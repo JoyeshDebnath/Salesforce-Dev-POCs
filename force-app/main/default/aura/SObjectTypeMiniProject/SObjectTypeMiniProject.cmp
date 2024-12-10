@@ -1,0 +1,46 @@
+<aura:component>
+    <aura:attribute name="showAddress" type="Boolean" default="false" />
+    <aura:attribute name="showCustomer" type="Boolean" default="false" />
+
+    <aura:attribute name="firstname" type="String" />
+    <aura:attribute name="lastname" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phone" type="String" />
+    <aura:attribute name="city" type="String" />
+    <aura:attribute name="state" type="String" />
+    <aura:attribute name="country" type="String" />
+
+    <lightning:card title="" footer="SObjectMiniProject">
+        <aura:set attribute="title">
+            <lightning:icon iconName="standard:document_reference" variant="border-filled" alternativeText="MiniProject"/>
+            SObject mini Project
+
+        </aura:set>
+        <aura:set attribute="actions">
+            <lightning:button label="Show Customer Details" aura:id="customer" onclick="{!c.handleShow}"/>
+            <lightning:button label="Show Address Details" aura:id="address" onclick="{!c.handleShow}"/>
+        </aura:set>
+        <aura:if isTrue="{!v.showCustomer}">
+            <div class="details">
+                <h1>Customer Information</h1><br/>
+                First Name : Joyesh <br/>
+                Last  Name : Debnath <br/>
+                Phone      : +91-638696396 <br/>
+                Email      : itsmejoyeshdebnath26@gmail.com <br/>
+
+            </div>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.showAddress}">
+            <div class="details">
+                <h1>Job Information</h1> 
+                <br/>
+                Company name : TCS <br/>
+                City Name    : Hyderabad <br/>
+                Street       : Hitech City <br/>
+                Country      : India <br/>
+            </div>
+        </aura:if>
+
+    </lightning:card>
+</aura:component>

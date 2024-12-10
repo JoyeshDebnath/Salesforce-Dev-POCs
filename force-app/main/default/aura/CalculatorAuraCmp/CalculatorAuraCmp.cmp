@@ -1,0 +1,26 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name='firstnumber' type='decimal' default='0'/>
+    <aura:attribute name='secondnumber' type='decimal' default='0' />
+    <aura:attribute name='result' type='decimal' />
+    
+	<div>
+    	<br>Lightning Aura Calculator Example </br>
+    </div>
+    <div>
+    	<div>
+            <ui:inputNumber label="First number:" aura:id='fnum' value='{!v.firstnumber}'/>
+        </div>
+        <br/>
+        <div>
+            <ui:inputNumber label="Second number:" aura:id='snum' value='{!v.secondnumber}'/>
+        </div>
+        <br/>
+        <div>
+            <ui:inputNumber label='Result:' aura:id='res' value='{!v.result}'/>
+        </div>
+        <br/>
+        <div>
+            <ui:button label="Click me " press="{!c.calculate}" class="button"/>
+        </div>
+    </div>
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="objectApiName" type="String" default="Account"/>
+    <aura:attribute name="fields" type="String[]" default="['Name','Industry']"/>
+
+    <lightning:recordViewForm 
+            recordId="{!v.recordId}" 
+            objectApiName="{!v.objectApiName}"
+    >
+        <div class="slds-grid">
+            <div class="slds-col slds-size_2-of-3">
+                <lightning:outputField fieldName="Name"/>
+                <lightning:outputField fieldName="Phone"/>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning:outputField fieldName="Industry"/>
+                <lightning:outputField fieldName="AnnualRevenue"/>
+            </div>
+        </div>
+    </lightning:recordViewForm>
+</aura:component>

@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="LDS Wire Demo" icon-name="custom:custom54">
+        <div class="slds-m-around_small">
+            <div class="slds-m-around_small">
+                <lightning-input label="Search case by subject "  value={searchKey} onchange={handleChange}>
+                </lightning-input>
+            </div>
+            
+            <template for:each={records} for:item='cse'>
+                <p key={cse.Id}>
+                    {cse.Subject} <br/>
+                    {cse.Status} <br>
+                    {cse.Origin}
+                </p>
+            </template>
+            <template if:true={errors}>
+                There was some error
+            </template>
+        </div>
+    </lightning-card>
+</template>

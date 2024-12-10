@@ -1,0 +1,11 @@
+<aura:component>
+    <aura:attribute name="flag" type="Boolean"/>
+    <aura:handler name="myevent" event="c:myEvent2" action="{!c.submit}" />
+    
+    <c:Child1/>
+    
+    <aura:if isTrue="{!v.flag}">
+        <lightning:button variant="brand" label="Register"/>
+    </aura:if>
+
+</aura:component>

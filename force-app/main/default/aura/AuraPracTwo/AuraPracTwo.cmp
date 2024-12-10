@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="flag" default="true" type="Boolean" access="private"/>
+    <aura:attribute name="colorList" type="List" default="['red','green','blue','yellow']" access="private" />
+    <aura:attribute name="mapVar" type="List" />
+    <!--if else in aura demo code -->
+    <aura:if isTrue="{!v.flag}">
+        <h2>This is True block </h2>
+        <aura:set attribute="else">
+            <h2>This is False / else block </h2>
+        </aura:set>
+    </aura:if>
+    <!--else block end s -->
+    
+    <aura:iteration items="{!v.colorList}" var="item">
+    		<p>{!item}</p>
+    </aura:iteration>
+    
+    <aura:iteration items="{!v.mapVar}" var="map">
+    	<h3>Key - {!map.key}  And Value - {!map.value}</h3>
+    </aura:iteration>
+    <lightning:button label="create map" onclick="{!c.doCreateMap}"></lightning:button>
+</aura:component>

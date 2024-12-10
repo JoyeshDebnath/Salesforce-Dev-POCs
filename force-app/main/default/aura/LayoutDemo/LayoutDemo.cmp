@@ -1,0 +1,21 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="data" type="AccountController.AccConWrapper[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="flag" type="Boolean"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    <aura:if isTrue="{!v.flag}">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="12">
+                <lightning:datatable
+                    keyField="id"
+                    data="{!v.data}"
+                    columns="{!v.columns}"
+                />
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+    </aura:if>
+
+</aura:component>

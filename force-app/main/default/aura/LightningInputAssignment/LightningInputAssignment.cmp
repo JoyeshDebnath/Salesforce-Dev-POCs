@@ -1,0 +1,25 @@
+<aura:component>
+    <aura:attribute name="firstname" type="String" />
+    <aura:attribute name="lastname" type="String" />
+    <aura:attribute name="salary" type="integer"/>
+    <aura:attribute name="tax" type="integer"/>
+    <aura:attribute name="netIncome" type="integer"/>
+
+    <div style="width: 600px;border:2px solid black;padding:30px;">
+        <lightning:card class="slds-p-around_medium" title="" footer="Copyright@Joyesh2024">
+            <aura:set attribute="title">
+                <lightning:icon iconName="standard:tax_treatment" size="small"/>
+                Income Calculator
+            </aura:set>
+                <lightning:input label="First Name:" value="{!v.firstname}" type="text"/>
+                <lightning:input label="Last Name:" value="{!v.lastname}" type="text"/>
+                <lightning:input label="Salary" value="{!v.salary}" type="number"/>
+                <lightning:input label="Tax %" value="{!v.tax}" type="number"/>
+                <lightning:input label="Net Salary" value="{!v.netIncome}" type="number" readonly="true"/>
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning:button label="Calculate" title="calculate" onclick="{!c.calculateSalary}"/>
+                    <lightning:button label="Reset" title="reset" onclick="{!c.resetFields}"/>
+                </div>
+        </lightning:card>
+    </div>
+</aura:component>

@@ -1,0 +1,17 @@
+<template>
+<lightning-card variant="Narrow" title="Datatable Demo" icon-name="standard:contact">
+   
+    <div class="slds-p-around_large">
+        <lightning-datatable
+         key-field="id"
+         data={contactsData}
+         show-row-number-column
+         hide-checkbox-column
+         columns={columnList}
+         onrowaction={handleRowAction}
+        >
+        </lightning-datatable>
+    </div>
+   <div slot="footer"></div>
+</lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<aura:component>
+    <aura:handler name="customerEvent" event="c:CustomerEvent" action="{!c.display}"/>
+    <aura:attribute name="acc" type="Account" default="{'sobjectType':'Account'}"/>
+    <aura:attribute name="flag" type="Boolean" default="false"/>
+
+    <c:CustomerForm1/>
+    
+
+    <aura:if isTrue="{!v.flag}">
+        <div style="margin-left:100px;margin-top:100px;border:1px solid green;">
+            <lightning:card title="Customer Details" iconName="standard:account">
+                <b>Customer Name</b> : {!v.acc.Name} <br/>
+                <b>Customer Phone</b> : {!v.acc.Phone} <br/>
+                <b>Customer Industry</b> : {!v.acc.Industry} <br/>
+            </lightning:card>
+        </div>
+    </aura:if>
+</aura:component>

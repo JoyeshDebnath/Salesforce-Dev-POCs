@@ -1,0 +1,24 @@
+<template>
+        <lightning-card title="Apex Imperative Method Demo" icon-name='standard:case'>
+            <div class="slds-m-around_small">
+                <lightning-input 
+                    value={subject}
+                    label="Case Subject"
+                    onchange={handleChange}
+                ></lightning-input>
+                <br/>
+                <lightning-button variant="brand" label="Load Cases" onclick={handleLoad}></lightning-button>
+            </div>
+
+            <template if:true={records}>
+                <div class="slds-m-around_medium">
+                    <template for:each={records} for:item="item">
+                        <p key={item.Id}>
+                            {item.Subject} <br/>
+                            {item.Origin}
+                        </p>
+                    </template>
+                </div>
+            </template>
+        </lightning-card>
+</template>

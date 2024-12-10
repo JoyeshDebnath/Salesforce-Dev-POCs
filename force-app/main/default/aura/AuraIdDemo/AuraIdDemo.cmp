@@ -1,0 +1,20 @@
+<aura:component>
+    <div class="box1">
+        <lightning:card title="" iconName="" footer="JoyeshDebnath@AuraId">
+            <aura:set attribute="title">
+                <lightning:icon iconName="utility:bundle_config" size="medium"/>
+                Calculator Using AuraID
+            </aura:set>
+            <aura:set attribute="actions">
+                <lightning:button  label="ADD" onclick="{!c.doAdd}"/>
+                <lightning:button label="Multiply" onclick="{!c.doMultiply}"/>
+                <lightning:button label="reset" onclick="{!c.doReset}"/>
+            </aura:set>
+            <div class="innerDiv">
+                    <lightning:input label="Enter First number" aura:id="firstNum"/>
+                    <lightning:input label="Enter Second number" aura:id="secondNum"/>
+                    <lightning:input label="Output" readonly="true" aura:id="output"/>
+            </div>
+        </lightning:card>
+    </div>
+</aura:component>

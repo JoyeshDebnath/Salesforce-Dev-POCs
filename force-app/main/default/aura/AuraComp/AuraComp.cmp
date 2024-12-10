@@ -1,0 +1,27 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:attribute name="flag" type="Boolean"  default="false"/>
+    <aura:attribute name="colorsList" type="List" default="['Red','Green','Blue','Purple','Black','Pink']"/>
+    <aura:attribute name="mapVar" type="List"/>
+   
+    
+    <lightning:button label="Toggle" onclick="{!c.toggleFlag}" />
+    
+    <aura:if isTrue="{!v.flag}">
+    	<h1>Hi there</h1>
+        <aura:set attribute="else">
+        	<h2>Gloomy Day</h2>
+        </aura:set>
+    </aura:if>
+    
+    <aura:iteration items="{!v.colorsList}" var="color">
+    	<p><b>{!color}</b></p>
+    </aura:iteration>
+    
+    <lightning:button label="Create Map" onclick="{!c.createMap}"/>
+    
+    <aura:iteration items="{!v.mapVar}" var="item">
+    	<p>{!item.key}</p>  :  <b>{!item.value}</b>
+    </aura:iteration>
+    
+    
+</aura:component>

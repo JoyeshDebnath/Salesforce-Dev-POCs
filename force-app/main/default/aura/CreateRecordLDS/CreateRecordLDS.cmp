@@ -1,0 +1,46 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="newContact" type="Object"/>
+    <aura:attribute name="simpleNewContact" type="Object"/>
+    <aura:attribute name="newContactError" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-p-around_medium">
+        <force:recordData
+            aura:id="contactRecordCreator"
+            fields="FirstName,LastName,Email,Phone"
+            targetRecord="{!v.newContact}"
+            targetFields="{!v.simpleNewContact}"
+            targetError="{!v.newContactError}"
+            recordUpdated="{!c.handleRecordUpdated}"
+        />
+    
+        <!-- form display for the record  -->
+         <div class="slds-p-around_medium">
+            <lightning:card iconName="action:new_contact" title="Create New Contact">
+                <div class="slds-p-horizontal--small">
+                    <lightning:input aura:id="contactField" label="First Name" value="{!v.simpleNewContact.FirstName}"/>
+                    <lightning:input aura:id="contactField" label="Last Name" value="{!v.simpleNewContact.LastName}"/>
+                    <lightning:input aura:id="contactField" label="Contact Email" value="{!v.simpleContact.Email}"/>
+                    <br/>
+                    <br/>
+                    <lightning:button label="Save Information" variant="brand" onclick="{!c.handleSaveContact}"/>
+                </div>
+
+                <!-- Delete record handler  -->
+                 <div class="slds-p-around_medium">
+                    <lightning:card iconName="action:delete" title="Delete Record ">
+                        <div class="slds-p-horizontal--small">
+                            <lightning:button label="Delete Record" variant="destructive" onclick="{!c.handleDeleteRecord}"/>
+                        </div>
+                    </lightning:card>
+                 </div>
+                <!-- Error handling  -->
+                 <aura:if isTrue="{!not(empty(v.newContactError))}" >
+                    <div class="slds-p-around_medium ">
+                                {!v.newContactError}
+                    </div>
+                 </aura:if>
+            </lightning:card>
+         </div>
+
+    </div>
+</aura:component>

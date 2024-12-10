@@ -1,0 +1,71 @@
+<aura:component >
+    <div class="slds-m-left_x-large">
+    
+        <lightning:buttonGroup>
+            <lightning:button class="" iconName="utility:activity" variant="brand" title="click on Accounts" label="Accounts"/>
+            <lightning:button class="" iconName="standard:branch_merge" variant="brand" title="click on contacts" label="Contacts"/>
+            <lightning:button class="" iconName="custom:custom71" variant="destructive" title="click on Opportunity to view " label="Opportunity"/>
+            <lightning:button class="" iconName="action:new_person_account" variant="success" title="click on milestone" label="Milestone"/>
+        </lightning:buttonGroup>
+    </div>
+    <br/>
+    <br/>
+        <lightning:buttonGroup>
+            <lightning:button class="" iconName="utility:activity" variant="brand" title="click on Accounts" label="Accounts"/>
+            <lightning:button class="" iconName="utility:activity" variant="brand" title="click on Accounts" label="Accounts"/>
+            <lightning:button class="" iconName="utility:activity" variant="brand" title="click on Accounts" label="Accounts"/>
+            <lightning:button class="" iconName="utility:activity" variant="brand" title="click on Accounts" label="Accounts"/>
+        </lightning:buttonGroup>
+    <br/>
+    <br/>
+    <br/>
+
+        <lightning:buttonMenu iconName="action:call">
+            <lightning:menuItem label="Save" />
+            <lightning:menuItem label="PDF"/>
+            <lightning:menuItem label="DOCUMENT"/>
+            <lightning:menuItem label="GOTO"/>
+        </lightning:buttonMenu> 
+
+        <div class="slds-m-left_x-large" style="Border:1px solid black;">
+            <lightning:card title="" iconName="standard:account" footer="CopyRight by @joyeshdebnath">
+                <aura:set attribute="title">
+                    Account
+                    <br/>
+                    <h2>Infosys</h2>
+                </aura:set>
+                <aura:set attribute="actions">
+                    <lightning:button iconName="action:add_relationship" label="Follow"/>
+                    <lightning:buttonGroup>
+                        <lightning:button title="Click to save" label="Save" variant="success"/>
+                        <lightning:button title="Clcik to create Accounts" label="Accounts" variant="brand"/>
+                        <lightning:button title="click to Delete" label="Delete" variant="destructive"/> 
+                    </lightning:buttonGroup>
+
+                    <lightning:buttonMenu >
+                        <lightning:menuItem label="Account"/>
+                        <lightning:menuItem label="Opportunity"/>
+                        <lightning:menuItem label="Contacts"/>
+                        <lightning:menuItem label="Case"/>
+
+                    </lightning:buttonMenu>
+                </aura:set>
+                <table class="slds-p-around_medium">
+                    <tr>
+                        <td>First Name</td>
+                        <td>Last NAme</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                    </tr>
+                    <tr>
+                        <td>Joyes</td>
+                        <td>Debnath</td>
+                        <td>itsmejoyeshdebnath26@gmail.com</td>
+                        <td>+91 898893909</td>
+                    </tr>
+                </table>
+
+
+            </lightning:card>
+        </div>
+</aura:component>

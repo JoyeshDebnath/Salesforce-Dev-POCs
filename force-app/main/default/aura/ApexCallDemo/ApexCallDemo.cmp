@@ -1,0 +1,3 @@
+<aura:component controller="SampleApexController">
+    <lightning:button variant="brand" label="Click To Invoke" onclick="{!c.invokeApex}"/>
+</aura:component>

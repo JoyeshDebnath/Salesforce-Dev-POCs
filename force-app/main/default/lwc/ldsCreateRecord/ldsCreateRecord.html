@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="LDS Create Record " icon-name="custom:custom54">
+        
+
+    <lightning-record-edit-form 
+        object-api-name={objectApiName} 
+            onsuccess={handleSuccess}
+    >
+        <lightning-input-field field-name='Subject'></lightning-input-field>
+        <lightning-input-field field-name="Status"></lightning-input-field>
+        <lightning-input-field field-name='Description'></lightning-input-field>
+        <lightning-input-field field-name="Priority"></lightning-input-field>    
+        <lightning-input-field field-name="Status"></lightning-input-field>
+
+        <lightning-button variant='brand' label='Create Child Case' type="submit">
+        </lightning-button>
+    </lightning-record-edit-form>
+    
+    </lightning-card>
+</template>

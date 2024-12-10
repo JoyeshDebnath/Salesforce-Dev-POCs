@@ -1,0 +1,86 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+<aura:attribute name="recordId" type="String"/> 
+<aura:attribute name="objectApiName" type="String" default="Account"/>
+
+<aura:attribute name="record" type="Object"/>
+<aura:attribute name="simpleRecord" type="Object"/>
+<aura:attribute name="recordError" type="String" />
+
+
+
+
+<!-- simplaest way using  lightning : recordForm -->
+<lightning:notificationsLibrary aura:id="notify"/>
+<lightning:recordForm
+        recordId="{!v.recordId}"
+        objectApiName="{!v.objectApiName}"
+        layoutType="Compact"
+        mode="edit"
+        onsuccess="{!c.handleSuccess}"
+        onerror="{!c.handleError}"
+    />
+
+    <!-- using customisation using lightning : recordEditForm  -->
+    <div class="slds-p-around_small">
+        <lightning:recordEditForm 
+                recordId="{!v.recordId}"
+                objectApiName="{!v.objectApiName}"
+        >
+        <lightning:messages/>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:inputField fieldName="Name"/>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning:inputField fieldName="Industry"/>
+            </div>
+        </div>
+        <lightning:button class="slds-m-top_small" type="submit" label="Create New"/>
+        </lightning:recordEditForm>
+    </div>
+
+
+    <!-- more customisation using force : recordData  -->
+
+    
+    <div class="slds-p-around_medium">
+        <force:recordData 
+        aura:id="recordHandler"
+        recordId="{!v.recordId}"
+        fields="Name,BillingCity,BillingState"
+        targetRecord="{!v.record}"
+        targetFields="{!v.simpleRecord}"
+        targetError="{!v.recordError}"
+        mode="EDIT"
+        recordUpdated="{!c.handleRecordUpdated}"
+        />
+    </div>
+        <!-- display a lightning card with details about the record  -->
+        <div class="Record Details">
+            <lightning:card iconName="standard:account" title="{!v.simpleRecord.Name}">
+                <div class="slds-p-horizontal--small">
+                    <p class="slds-text-heading--small">
+                        <lightning:formattedText title="Billing State" value="{!v.simpleRecord.BillingState}"/>
+                    </p>
+                    <p>
+                        <lightning:formattedText title="Billing State" value="{!v.simpleRecord.BillingCity}"/>
+                    </p>
+                </div>
+            </lightning:card>
+        </div>
+        <!-- Edit Form -->
+        <div class="Record Details">
+            <lightning:card iconName="action:edit" title="Edit Account">
+                <div class="slds-p-horizontal--small">
+                    <lightning:input label="Account name" value="{!v.simpleRecord.Name}"/>
+                </div>
+                <lightning:button label="Save Account" variant="brand" onclick="{!c.handleSave}"/>
+            </lightning:card>
+        </div>
+        <!-- Display Error   -->
+        <aura:if isTrue="{!not(empty(v.recordError))}">
+            <div class="recordError">
+                {!v.recordError}
+            </div>
+        </aura:if>
+</aura:component>

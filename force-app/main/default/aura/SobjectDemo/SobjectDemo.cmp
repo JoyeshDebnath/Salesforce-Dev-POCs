@@ -1,0 +1,25 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="account" type="Account" default="{
+                                        'sobjectType':'Account',
+                                        Name:'Joyesh Debnth',
+                                        Phone:'23123123',
+                                        Industry:'Energy'
+                                        }"        
+                                    />
+
+    <div style="margin-left:100px;margin-top:100px;height:300px;width:700px;">
+        <lightning:card title="Customer Regsistration Form" iconName="standard:account">
+            <aura:set attribute="actions">
+                <lightning:button label="Save" onclick="{!c.onSave}"/>
+                <lightning:button label="Cancel" onclick="{!c.onCancel}"/>
+            </aura:set>
+            <div style="padding:20px;">
+                <lightning:input label="Name" value="{!v.account.Name}"/>
+                <lightning:input label="Phone" value="{!v.account.Phone}"/>
+                <lightning:input label="Industry" value="{!v.account.Industry}"/>
+            </div>
+
+        </lightning:card>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,11 @@
+<template>
+    <lightning-modal-header label="My Modal"></lightning-modal-header>
+    <lightning-modal-body>
+        {content}
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button variant="warning" label="Cancel" onclick={handleCancel}></lightning-button>
+        &nbsp;&nbsp;&nbsp;
+        <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+    </lightning-modal-footer>
+</template>

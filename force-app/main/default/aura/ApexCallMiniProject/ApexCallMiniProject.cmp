@@ -1,0 +1,22 @@
+<aura:component controller="AccountController">
+    <aura:attribute name="strKey" type="String"/>
+    <aura:attribute name="accnt" type="Account" default="{'sobjectType':'Account'}"/>
+    <aura:attribute name="flag" type="Boolean" default="false"/>
+
+    <div style="margin:100px;width:400px;">
+            <lightning:input label="Industry" value="{!v.strKey}"/><br/>
+            <lightning:button label="Search" onclick="{!c.doSearch}"/>
+
+    </div>
+
+    <aura:if isTrue="{!v.flag}">
+        <lightning:card title="Account Info" iconName="standard:account">
+            <div style="padding:5px;">
+                Name : {!v.accnt.Name} <br/>
+                Phone : {!v.accnt.Phone} <br/>
+                Industry : {!v.accnt.Industry} <br/>
+            </div>
+        </lightning:card>
+    </aura:if>
+
+</aura:component>
