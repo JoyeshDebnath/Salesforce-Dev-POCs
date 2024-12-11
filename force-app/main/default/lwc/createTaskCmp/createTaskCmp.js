@@ -78,6 +78,7 @@ export default class CreateTaskCmp extends LightningElement {
                     message: 'The todo item was created successfully!',
                     variant:'success'
                 }))
+                this.dispatchEvent(new CustomEvent('success'));
             }).catch(err => { 
                 console.log('Something went wrong !', JSON.stringify(err))
                 // this.isLoading = false;
@@ -86,6 +87,7 @@ export default class CreateTaskCmp extends LightningElement {
                     message: 'Something Went Wrong while creating Todo!',
                     variant:'error'
                 }))
+                
             }).finally(() => { 
                 this.isLoading = false;
             })

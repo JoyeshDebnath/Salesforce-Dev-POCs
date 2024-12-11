@@ -1,5 +1,23 @@
 public with sharing class ReminderService {
 
+    @AuraEnabled(cacheable=true)
+    public static List<sObject> getTodos(){
+        try{
+            return [SELECT 
+                            Id,Subject,ActivityDate,Description 
+                            FROM 
+                            Task 
+                            WHERE 
+                            ActivityDate!=null 
+                            AND 
+                            OwnerId=:UserInfo.getUserId()
+                    ];
+
+        }catch(Exception  e){
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
     @AuraEnabled(cacheable = true)
     //Example : objectApiName: 'Task'  | fieldApiName : 'Status' 
 

@@ -1,0 +1,25 @@
+.parent-container{
+    background: lightblue;
+    position: relative;
+    height: 150px;
+    margin:12px;
+    padding: 12px;
+    border-radius:12px;
+}
+
+.heading-container{
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+    font-family: 'Salesforce Sans';
+}
+
+.text-container{
+    font-family: 'Salesforce Sans';
+    line-height: 2;
+    margin: 5px;
+}
+.btn-container{
+    position: absolute;
+    bottom: 5px;
+}
