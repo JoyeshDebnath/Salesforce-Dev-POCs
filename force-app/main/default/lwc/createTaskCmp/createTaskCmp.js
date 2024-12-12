@@ -8,7 +8,8 @@ export default class CreateTaskCmp extends LightningElement {
     @track isLoading = false;
     @track statusOtions = [];
     @track priorityOptions = [];
-    recordToCreate = {
+    @api recordId;
+    @api recordToCreate = {
         "Subject": '',
         "ActivityDate": null,
         "Status": "",
@@ -54,8 +55,10 @@ export default class CreateTaskCmp extends LightningElement {
     handleChange (event) { 
         event.preventDefault();
         const val = event.target.value;
+        let exisitingValues = { ...this.recordToCreate };
         
-            this.recordToCreate[event.target.name] = val;
+        exisitingValues[event.target.name] = val;
+        this.recordToCreate=JSON.parse(JSON.stringify(exisitingValues));
         
     }
 
@@ -67,6 +70,7 @@ export default class CreateTaskCmp extends LightningElement {
         { 
             return;
         }
+        
         this.resetFields();
         this.isLoading = true;
         createTodoItem({ taskStr: JSON.stringify(this.recordToCreate) })

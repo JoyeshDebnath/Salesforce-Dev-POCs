@@ -52,7 +52,75 @@
                 </div>
                 <div class="slds-modal__content slds-p-around_medium"
                     id="modal-content-id-1">
-                    <c-create-task-cmp onsuccess={handleCancel}></c-create-task-cmp>
+                    <c-create-task-cmp onsuccess={handleSuccess}></c-create-task-cmp>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral"
+                    onclick={handleCancel}
+                        aria-label="Cancel and close">Cancel</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </div>
+
+    <div class="modal-container" lwc:if={selectedRecord}>
+        <section role="dialog" tabindex="-1" aria-modal="true"
+            aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- <button class="slds-button slds-button_icon slds-modal__close">
+                    <svg class="slds-button__icon slds-button__icon_large"
+                        aria-hidden="true">
+                        <use
+                            xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button> -->
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-02"
+                        class="slds-modal__title slds-hyphenate"
+                        tabindex="-1">View Reminder</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium"
+                    id="modal-content-id-2">
+                    <!-- <c-create-task-cmp onsuccess={handleCancel}></c-create-task-cmp> -->
+                    <c-view-reminder-cmp record={selectedRecord}></c-view-reminder-cmp>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral"
+                    onclick={handleCancel}
+                        aria-label="Cancel and close">Cancel</button>
+
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </div>
+
+    <div class="modal-container" lwc:if={editModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true"
+            aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- <button class="slds-button slds-button_icon slds-modal__close">
+                    <svg class="slds-button__icon slds-button__icon_large"
+                        aria-hidden="true">
+                        <use
+                            xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button> -->
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-03"
+                        class="slds-modal__title slds-hyphenate"
+                        tabindex="-1">Edit Reminder</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium"
+                    id="modal-content-id-3">
+                    <c-create-task-cmp record-to-create={selectedEditRecord} record-id={selectedEditRecord.Id} onsuccess={handleSuccess}></c-create-task-cmp>
+                    
                 </div>
                 <div class="slds-modal__footer">
                     <button class="slds-button slds-button_neutral"

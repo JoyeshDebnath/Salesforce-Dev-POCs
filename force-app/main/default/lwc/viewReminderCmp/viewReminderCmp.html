@@ -1,0 +1,32 @@
+<template>
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" disbaled padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
+            <p>Reminder Subject</p>
+            <p>{record.Subject}</p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
+            <p>Reminder Status</p>
+            <p>{record.Status}</p>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
+            <p>Reminder Priority</p>
+            <p>{record.Priority}</p>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
+            
+            <p>Reminder Due Date</p>
+            <p>{record.ActivityDate}</p>
+        </lightning-layout-item>
+    </lightning-layout>
+        <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="12" large-device-size="12">
+            <p>Reminder Comments</p>
+            <p>{record.Description}</p>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

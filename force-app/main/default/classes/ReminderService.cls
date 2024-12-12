@@ -4,7 +4,7 @@ public with sharing class ReminderService {
     public static List<sObject> getTodos(){
         try{
             return [SELECT 
-                            Id,Subject,ActivityDate,Description 
+                            Id,Subject,ActivityDate,Description,Status,Priority 
                             FROM 
                             Task 
                             WHERE 
@@ -43,7 +43,7 @@ public with sharing class ReminderService {
     public static void createToDoItem(String taskStr){
         try {
             Task taskRecord =(Task)JSON.deserialize(taskStr,Task.class);
-            insert taskRecord;
+            upsert taskRecord;// if id is present -> upsert / if id is not prersent thenn it will insert 
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
             

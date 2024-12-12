@@ -7,10 +7,10 @@
 
         <lightning-layout multiple-rows>
             <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
-                <lightning-input type="text" value="" placeholder="Subject" label="Subject" name="Subject" onchange={handleChange} required="true"></lightning-input>
+                <lightning-input type="text" value={recordToCreate.Subject} placeholder="Subject" label="Subject" name="Subject" onchange={handleChange} required="true"></lightning-input>
             </lightning-layout-item>
             <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="6" large-device-size="6">
-                <lightning-input type="date" label="Due Date" name="ActivityDate" onchange={handleChange} required="true"></lightning-input>
+                <lightning-input value={recordToCreate.ActivityDate} type="date" label="Due Date" name="ActivityDate" onchange={handleChange} required="true"></lightning-input>
             </lightning-layout-item>
             
         </lightning-layout>
@@ -20,7 +20,7 @@
                 <lightning-combobox
                     name="Status"
                     label="Status"
-                    value={value}
+                    value={recordToCreate.Status}
                     placeholder="Select Status"
                     options={statusOtions}
                     onchange={handleChange} >
@@ -30,7 +30,7 @@
                 <lightning-combobox
                     name="Priority"
                     label="Priority"
-                    value={value}
+                    value={recordToCreate.Priority}
                     placeholder="Select Priority"
                     options={priorityOptions}
                     onchange={handleChange} >
@@ -41,7 +41,7 @@
 
         <lightning-layout multiple-rows>
             <lightning-layout-item size="12" padding="around-small" small-device-size="12" medium-device-size="12" large-device-size="12">
-                <lightning-textarea name="Description" label="Comment" onchange={handleChange}></lightning-textarea>
+                <lightning-textarea value={recordToCreate.Description} name="Description" label="Comment" onchange={handleChange}></lightning-textarea>
             </lightning-layout-item>
         </lightning-layout>
 

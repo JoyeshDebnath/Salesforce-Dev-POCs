@@ -2,10 +2,14 @@ import { LightningElement, api, wire, track } from 'lwc';
 import fetchTodoList from '@salesforce/apex/ReminderService.getTodos';
 import { NavigationMixin } from 'lightning/navigation';
 
-export default class ReminderCmp extends NavigationMixin(LightningElement) {
+export default class ReminderCmp extends LightningElement {
     @track reminderList = [];
     @track errors;
     showModal = false;
+    @track selectedRecord;
+    @track selectedEditRecord;
+    @track editModal = false;
+
 
     @wire(fetchTodoList)
     fetchTodoReponse ({ data, error }) {
@@ -34,35 +38,59 @@ export default class ReminderCmp extends NavigationMixin(LightningElement) {
     }
 
     handleCancel () {
-
-
         this.showModal = false;
+        this.selectedRecord = undefined;
+        this.editModal = false;
+        this.selectedEditRecord=undefined;
 
     }
 
+    handleSuccess (event) { 
+        this.showModal = false;
+        this.selectedRecord = undefined;
+        this.editModal = false;
+        this.selectedEditRecord = undefined;
+        location.reload(true);//reloads the window 
+    }
+
     viewReminder (event) {
-        console.log('clicked',event.target.dataset.id);
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId:event.target.dataset.id,
-                objectApiName: 'Task',
-                actionName: 'view'
-            }
+        event.preventDefault();
+        let recordId = event.target.dataset.id;
+        console.log(recordId);
+        this.selectedRecord=this.reminderList.find((reminder) => { 
+            return reminder.Id===recordId;
         })
+        console.log('The Selected Record is :', JSON.stringify(this.selectedRecord));
+        // this[NavigationMixin.Navigate]({
+        //     type: 'standard__recordPage',
+        //     attributes: {
+        //         recordId:event.target.dataset.id,
+        //         objectApiName: 'Task',
+        //         actionName: 'view'
+        //     }
+        // })
     }
 
     editReminder (event) { 
         event.preventDefault();
-            // console.log('clicked',event.target.dataset.id);
-        this[NavigationMixin.Navigate]({
-            type: 'standard__recordPage',
-            attributes: {
-                recordId:event.target.dataset.id,
-                objectApiName: 'Task',
-                actionName: 'edit'
-            }
+        this.editModal = true;
+        let recordId = event.target.dataset.id;
+        console.log(recordId);
+        this.selectedEditRecord=this.reminderList.find((reminder) => { 
+            return reminder.Id===recordId;
         })
+        console.log('The Selected Record is :', JSON.stringify(this.selectedEditRecord));
+
+
+            // console.log('clicked',event.target.dataset.id);
+        // this[NavigationMixin.Navigate]({
+        //     type: 'standard__recordPage',
+        //     attributes: {
+        //         recordId:event.target.dataset.id,
+        //         objectApiName: 'Task',
+        //         actionName: 'edit'
+        //     }
+        // })
     }
 
 
